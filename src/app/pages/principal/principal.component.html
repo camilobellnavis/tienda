@@ -1,0 +1,46 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title style="text-align: center; font-size: 15px !important;    padding-right: 53px !important;" class="normal" >
+      SOS TECHNOLOGIES
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="primary" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/perfil']" >
+        <ion-icon color="primary" slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ 
+  
+  <div  *ngFor="let producto of productos"> 
+    <app-producto [producto] = producto ></app-producto>
+
+  </div>
+  
+
+</ion-content>
+
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button selected="true"  [routerLink]="['/home']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button   [routerLink]="['/set-productos']" >
+      <ion-icon name="laptop-outline"></ion-icon>
+      <ion-label>Servicios</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button  [routerLink]="['/perfil']" >
+      <ion-icon name="person-sharp"></ion-icon>      
+      <ion-label>Perfíl</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+

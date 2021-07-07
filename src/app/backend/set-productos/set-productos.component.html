@@ -1,0 +1,113 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title style="text-align: center; font-size: 15px !important;    padding-right: 53px !important;" class="normal" >
+      Configuración de Productos
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon color="primary" slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="display: flex;">
+  <div style="text-align: end;" >
+    <ion-button  style="margin: 10px;"  color="success" (click)="nuevoProducto()">
+      <ion-icon name="add-circle-sharp"></ion-icon>
+    </ion-button>
+  </div>
+  
+  <div *ngIf="enablenewProducto">
+    <ion-item>
+      <ion-buttons slot="end">
+        <ion-button color="dark" (click)="enablenewProducto=false">
+          <ion-icon slot="icon-only" name="close"> </ion-icon>
+        </ion-button>
+        <ion-button style="margin: 10px;" color="primary" (click)="guardarProducto()">
+          <ion-icon name="save"></ion-icon>   
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <h3 class="subtitulo parametros">Ingrese datos del producto</h3>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Nombre:
+      </ion-label>
+      <ion-input [(ngModel)]="newProducto.nombre" class="normal" inputmode="text">    
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Precio:
+      </ion-label>
+      <ion-input [(ngModel)]="newProducto.precioNormal" class="normal" type="number" inputmode="numeric">    
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Precio Descuento:
+      </ion-label>
+      <ion-input [(ngModel)]="newProducto.precioReducido" class="normal" type="number" inputmode="numeric">    
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" >
+        Foto:
+      </ion-label>
+      <ion-buttons slot="end">
+        <label for="upload-img">
+          <ion-icon slot="icon-only" name="images"> </ion-icon>
+        </label>
+        <input (change)="newImageUpload($event)" id="upload-img" style="display:none" type="file" accept="image/*">
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <img [src]="newProducto.foto">
+    </ion-item>
+  </div>
+
+    
+    <ion-card>
+      <h3 class="subtitulo parametros">Productos</h3>
+      <ion-item *ngFor="let item of productos">
+        <ion-label>{{item.nombre}}</ion-label>
+        <ion-buttons>
+          <ion-button (click)="newProducto = item; enablenewProducto=true">
+            <ion-icon name="create-sharp" color="dark"></ion-icon>
+          </ion-button>
+          <ion-button  (click)="eliminarProducto(item)">
+            <ion-icon name="trash" color="danger"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-card>
+   
+</ion-content>
+<ion-tab-bar >
+  <ion-tab-button [routerLink]="['/home']" >
+    <ion-icon name="home"></ion-icon>
+    <ion-label>Inicio</ion-label>
+  </ion-tab-button>
+  
+  <ion-tab-button selected="true"  [routerLink]="['/set-productos']" >
+    <ion-icon name="laptop-outline"></ion-icon>
+    <ion-label>Servicios</ion-label>
+  </ion-tab-button>
+  
+  <ion-tab-button  [routerLink]="['/perfil']">
+    <ion-icon name="person-sharp"></ion-icon>      
+    <ion-label>Perfíl</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+
+  
+
+
+ 
+
+
+  
+
+

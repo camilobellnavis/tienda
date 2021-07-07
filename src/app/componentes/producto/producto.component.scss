@@ -1,0 +1,31 @@
+.img{
+    width: 250px;
+    margin: auto;
+}
+.tachado{
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 20px;
+    text-align: center;
+    font-size: large;
+    color: red;
+    text-decoration: line-through;
+    margin: 10px;
+}
+.pnomal{
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 20px;
+    text-align: center;
+    font-size: large;
+    color: rgb(25, 248, 92);
+    margin: 10px;
+}
+.btncart{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 25px;
+    background: lavender;
+    padding: 10px;
+    border-radius: 100%;
+    margin: 5px;
+}

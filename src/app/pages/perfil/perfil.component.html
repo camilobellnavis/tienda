@@ -1,0 +1,44 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title  style="text-align: center; font-size: 15px !important;    padding-right: 53px !important;" class="normal" >
+      Perfíl
+    </ion-title>
+
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-icon color="primary" slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ 
+    <ion-item button=true detail=true [routerLink]="['/infocuenta']">
+      <ion-icon color="primary" name="person-outline"></ion-icon>
+      <ion-label style="text-align: center;"class="normal">Datos de la cuenta</ion-label>
+    </ion-item>
+    <ion-item button=true detail=true (click)="salir()">
+      <ion-icon color="primary" name="log-out-outline"></ion-icon>      
+      <ion-label style="text-align: center;" class="normal">Cerrar sesión</ion-label>
+    </ion-item>
+
+  
+    
+</ion-content>
+<ion-tab-bar >
+    <ion-tab-button [routerLink]="['/home']" >
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button  [routerLink]="['/set-productos']" >
+      <ion-icon name="laptop-outline"></ion-icon>
+      <ion-label>Servicios</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button selected="true"  [routerLink]="['/perfil']">
+      <ion-icon name="person-sharp"></ion-icon>      
+      <ion-label>Perfíl</ion-label>
+    </ion-tab-button>
+</ion-tab-bar>
+
